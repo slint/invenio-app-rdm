@@ -107,8 +107,10 @@ setup(
         'console_scripts': [
             'invenio-app-rdm = invenio_app.cli:cli',
         ],
+        # FIXME: This end in a double registration. It should only be one.
         'invenio_base.blueprints': [
             'invenio_app_rdm = invenio_app_rdm.theme.views:blueprint',
+            'invenio_app_rdm_resources = invenio_app_rdm.views:create_blueprint',
         ],
         'invenio_assets.webpack': [
             'invenio_app_rdm_theme = invenio_app_rdm.theme.webpack:theme',
